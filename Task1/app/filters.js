@@ -14,3 +14,16 @@ eventsApp.filter('durations', function() {
     }
   }
 })
+
+eventsApp.filter('sessionIcon', function($sce) {
+  return function(level) {
+    switch(level) {
+      case "Introductory":
+        return $sce.trustAsHtml("<i class='icon-arrow-left icon-white'></i>");
+      case "Intermediate":
+        return $sce.trustAsHtml("<i class='icon-arrow-up icon-white'></i>");
+      case "Advanced":
+        return $sce.trustAsHtml("<i class='icon-arrow-right icon-white'></i>");
+    }
+  }
+})
