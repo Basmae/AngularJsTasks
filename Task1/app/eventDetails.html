@@ -8,9 +8,12 @@
     <body ng-cloak>
         <div class="container">
             <div class="navbar">
-                <div class="navbar-inner">
+                <div class="navbar-inner" ng-controller="EventController">
                     <ul class="nav">
                             <li><a href="/NewEvent.html">Create Event</a></li>
+                            <li ng-if="userName == '' "><a href="/Login.html">Login</a></li>
+                            <li ng-if="userName !='' ">Welcome {{user.userName}}</li>
+                            <li ng-if="userName !='' "><button ng-click="logout()">Logout</button></li>
                     </ul>
                 </div>
             </div>
@@ -36,7 +39,7 @@
                 <h3>Sessions:</h3>
                 Order By:
         <select name="" id="" ng-model="sortorder" class="input-small">
-          <option value="name" selected>Name</option>
+          <option value="" selected>Name</option>
           <option value="-upVoteCount">Votes</option>
         </select>
         Show:
@@ -83,12 +86,17 @@
         <script src="lib/underscore-1.4.4.min.js"></script>
         <script src="lib/bootstrap.min.js"></script>
         <script src="lib/angular/angular-resource.js"></script>
+        <script src="lib/angular/angular-cookies.js"></script>
         <script src="lib/angular/angular-sanitize.js"></script>
         <script src="app.js"></script>
+        <script src="services/CookiesService.js"></script>
+        <script src="services/userData.js"></script>
+        <script src="services/loginData.js"></script>
         <script src="controllers/EventController.js"></script>
         <script src="services/eventData.js"></script>
         <script src="lib/jquery.min.js"></script>
         <script src="controllers/EditEventController.js"></script>
+        <script src="controllers/LoginController.js"></script>
         <script src="filters.js"></script>
         
 

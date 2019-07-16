@@ -7,7 +7,6 @@ eventsApp.controller('EditEventController',function EditEventController($scope,e
             .catch(function(response){console.log('failure',response)})
         }
     };
-
     $scope.cancelEvent = function(){
         window.location = '/eventDetails.html';
     }
