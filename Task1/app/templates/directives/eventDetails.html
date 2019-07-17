@@ -1,0 +1,37 @@
+<div>
+<img ng-src="{{event.imageUrl}}" alt="{{event.name}}">
+<div class="row">
+    <div class="span11">
+        <h2>{{event.name | uppercase}}</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="span3">
+        <div><strong>Date:</strong>{{event.date}}</div>
+        <div><strong>Time:</strong>{{event.time}}</div>
+
+    </div>
+    <div class="span4">
+        <address><strong>Address</strong><br/>{{event.location.address}}<br/>
+        {{event.location.city}},{{event.location.province}}</address>
+    </div>
+</div>
+<hr/>
+<h3>Sessions:</h3>
+Order By:
+<select name="" id="" ng-model="sortorder" class="input-small">
+<option value="" selected>Name</option>
+<option value="-upVoteCount">Votes</option>
+</select>
+Show:
+<select name="" id="" ng-model="query.level" class="input-medium">
+<!-- <option value="" selected><i class='icon-chevron-down' style='color:black;'></i></option>
+<option ng-repeat="lvl in Levels" value="{{lvl}}" ><span data-ng-bind-html="{{lvl | sessionIcon}}"></span></option>
+-->
+<option value="" selected>All</option>
+<option value="introductory" >introductory</option>
+<option value="intermediate" >Intermediate</option>
+<option value="advanced" >Advanced</option>
+
+</select>
+</div>

@@ -29,9 +29,8 @@ select, textarea {
   cursor:pointer;
 }
 
-.sessionThumbnail {
-    height:100%;
-    overflow: hidden;
+.blue {
+  color:blue;
 }
 
 

@@ -1,0 +1,14 @@
+<div class="row session">
+        <span>
+            <up-vote upvote="upVoteSession(session)" downvote="downVoteSession(session)" count="session.upVoteCount"/>
+        </span>
+    <div class="well span9">
+        <h4 class="well-title">
+             {{session.name}}
+        </h4>
+        <h6 style="margin-top: -10px">{{session.creatorName}}</h6>
+        <span>Duration: {{session.duration}}</span><br/>
+        <span>Level:<span data-ng-bind-html = " session.level | sessionIcon"></span></span>
+        <p>{{session.abstract}}</p>
+    </div>
+</div>
