@@ -11,7 +11,7 @@ eventsApp.controller('LoginController',
                     if($scope.user.password == response.password)
                     {
                         window.localStorage.userName=response.userName;
-                        window.location = '/eventDetails.html';
+                        window.location = '/events';
                     }
                     else
                     {
@@ -27,7 +27,7 @@ eventsApp.controller('LoginController',
 
         
         $scope.cancelUser = function(){
-            window.location = '/eventDetails.html';
+            window.location = '/events';
         }
     
 

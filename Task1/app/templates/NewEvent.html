@@ -1,22 +1,6 @@
-<!doctype html>
-<html ng-app="eventsApp">
-  <head>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/app.css">
-  </head>
-  
-  
-  <body ng-cloak>
-    <div class="container">
-      <div class="navbar">
-        <div class="navbar-inner">
-          <ul class="nav">
-            <li><a href="/NewEvent.html">Create Event</a></li>
-          </ul>
-        </div>
-      </div>
+
       <style>input.ng-invalid.ng-dirty {background-color: pink}</style>
-      <div ng-controller="EditEventController" style="padding-left:20px; padding-right:20px">
+      <div  style="padding-left:20px; padding-right:20px">
         <div class="container">
           <h1>New Event</h1>
           <hr>
@@ -27,7 +11,7 @@
               <label for="eventDate">Event Date:</label>
               <input id="eventDate" type="text" required ng-pattern="/\d\d/\d\d/\d\d\d\d/" ng-model="event.date" placeholder="format (mm/dd/yyyy)..." />
               <label for="eventTime">Event Time:</label>
-              <input id="eventTime" type="text" ng-pattern="/\d\d:\d\d/" ng-min="00:00" ng-max="23:59" ng-model="event.time" placeholder="start and end time..." />
+              <input id="eventTime" type="text" ng-pattern="/\d\d:\d\d/" ng-model="event.time" placeholder="start and end time..." />
               <label for="eventLocation">Event Location:</label>
               <input id="eventLocation" type="text" ng-model="event.location.address" placeholder="Address of event..." />
               <br />
@@ -47,21 +31,3 @@
           </form>
         </div>
       </div>
-    </div>
-    
-    <script src="lib/angular/angular.js"></script>
-        <script src="lib/underscore-1.4.4.min.js"></script>
-        <script src="lib/bootstrap.min.js"></script>
-        <script src="lib/angular/angular-resource.js"></script>
-        <script src="lib/angular/angular-sanitize.js"></script>
-        <script src="app.js"></script>
-        <script src="controllers/EventController.js"></script>
-        <script src="services/eventData.js"></script>
-        <script src="services/userData.js"></script>
-        <script src="services/loginData.js"></script>
-
-        <script src="lib/jquery.min.js"></script>
-        <script src="controllers/EditEventController.js"></script>
-        <script src="filters.js"></script>
-  </body>
-</html>

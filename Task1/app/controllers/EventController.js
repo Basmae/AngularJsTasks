@@ -34,14 +34,15 @@
 
 //with login , without cookies
 
-eventsApp.controller('EventController',function EventController($scope,eventData,userData){
-    eventData.getEvent().$promise.
+eventsApp.controller('EventController',function EventController($scope,eventData,userData,$routeParams,$route){
+    eventData.getEvent($routeParams.eventId).$promise.
     then(function(event){
         $scope.event= event;
        },
         function(response){
             console.log(response);
         });
+    console.log($route);
     $scope.userName=window.localStorage.userName; 
     if($scope.userName!=""){
     userData.getUser($scope.userName).$promise.
@@ -57,7 +58,7 @@ eventsApp.controller('EventController',function EventController($scope,eventData
    $scope.logout = function()
    {
        window.localStorage.userName="";
-       window.location = '/eventDetails.html';
+       window.location = '/events';
 
    }
    $scope.upVoteSession = function(session)
@@ -66,13 +67,13 @@ eventsApp.controller('EventController',function EventController($scope,eventData
        {
     var found ;
        $scope.user.sessions.forEach(element => {
-           if(element==session.id)
+           if(element==(session.id+''+$scope.event.id))
              found=1;
        });
        if(found!=1)
        {
            $scope.event.sessions[session.id-1].upVoteCount++;
-           $scope.user.sessions.push(session.id);
+           $scope.user.sessions.push(session.id+''+$scope.event.id);
            eventData.update($scope.event);
            userData.update($scope.user);
        }
@@ -91,13 +92,13 @@ eventsApp.controller('EventController',function EventController($scope,eventData
     {
        var found ;
        $scope.user.sessions.forEach(element => {
-        if(element==session.id)
+        if(element==(session.id+''+$scope.event.id))
           found=1;
          });
        if(found!=1)
        {
            $scope.event.sessions[session.id-1].upVoteCount--;           
-           $scope.user.sessions.push(session.id);
+           $scope.user.sessions.push(session.id+''+$scope.event.id);
            eventData.update($scope.event);
            userData.update($scope.user);           
 

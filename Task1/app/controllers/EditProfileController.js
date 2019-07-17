@@ -1,4 +1,3 @@
-'use strict';
 
 eventsApp.controller('EditProfileController',
     function EditProfileController($scope,userData) {
@@ -14,10 +13,12 @@ eventsApp.controller('EditProfileController',
 
         
         $scope.cancelUser = function(){
-            window.location = '/eventDetails.html';
+            window.location = '/events';
         }
     
 
     }
 );
+
+
 

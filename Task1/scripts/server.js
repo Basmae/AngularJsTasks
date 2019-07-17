@@ -14,8 +14,12 @@ app.use(express.static(rootpath+'/app'));
 app.get('/data/event/:id',events.get);
 app.post('/data/event/:id',events.save);
 app.get('/data/event',events.getAll);
+app.get('/data/events',events.getAllEvents);
 app.get('/data/user/:username',users.get);
 app.post('/data/user/:username',users.save);
+app.get('*',function(req,res){
+    res.sendFile(rootpath+'/app/index.html');
+});
 
 
 

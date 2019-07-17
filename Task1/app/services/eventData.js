@@ -3,8 +3,8 @@ eventsApp.factory('eventData',function($resource){
     var all=$resource('/data/event');
      
     return{
-       getEvent:function(){
-          return resource.get({id:1});
+       getEvent:function(eventId){
+          return resource.get({id:eventId});
        },
        save:function(event){
         all.get().$promise.then(function(response){
@@ -20,6 +20,9 @@ eventsApp.factory('eventData',function($resource){
            resource.get({id:event.id}).$promise.then(function(response){
                 resource.save(event);
            })
+       },
+       getAllEvents:function(){
+           return $resource('data/events').query();
        }
     };
 })
